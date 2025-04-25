@@ -38,7 +38,7 @@ func apply_movement(delta):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w831s"]
 size = Vector2(14, 80)
 
-[node name="Racket" type="CharacterBody2D"]
+[node name="Racket" type="CharacterBody2D" groups=["rackets"]]
 script = SubResource("GDScript_ihuk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
