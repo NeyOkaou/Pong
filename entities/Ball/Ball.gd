@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-var initial_ball_speed = 600
+@onready var ball = $Ball
+
+var initial_ball_speed = 500
 var speed_commulator  = 50
 var ball_speed = initial_ball_speed
 
@@ -12,6 +14,8 @@ func _ready():
 	#randomize the seed for the generated numbers
 	randomize()
 	set_start_direction()
+
+
 
 func set_start_direction():
 	#decide the direction the ball will go in first
@@ -28,4 +32,12 @@ func _physics_process(delta):
 	#make the ball bounce when it touch the wall
 	if collision:
 		direction = direction.bounce(collision.get_normal())
+		if collision.get_collider().is_in_group("joueur"):
+			if hit_counter<12:
+				ball_speed += 80
+				direction = direction.normalized() * ball_speed
+				hit_counter+=1
 	#make the ball bounce when it touch a racket
+	
+
+

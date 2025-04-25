@@ -7,7 +7,7 @@ script/source = "extends CharacterBody2D
 
 class_name Racket
 
-var move_speed = 600
+var move_speed = 1200
 var direction = Vector2()
 
 # Called when the node enters the scene tree for the first time.
@@ -33,20 +33,17 @@ func handle_input():
 func apply_movement(delta):
 	if direction.length() > 0:
 		move_and_collide(direction * move_speed * delta)
-
-
-func _on_area_2d_area_entered(area):
-	pass # Replace with function body.
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w831s"]
 size = Vector2(14, 80)
 
-[node name="Racket" type="CharacterBody2D"]
+[node name="Racket" type="CharacterBody2D" groups=["joueur"]]
+motion_mode = 1
 script = SubResource("GDScript_ihuk5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_w831s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_w24kf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w831s")

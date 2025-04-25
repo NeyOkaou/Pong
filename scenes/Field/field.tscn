@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c32adwyqay48f"]
+[gd_scene load_steps=5 format=3 uid="uid://c32adwyqay48f"]
 
 [ext_resource type="Texture2D" uid="uid://bk1me6k7e5jjo" path="res://scenes/Field/Field.png" id="1_bwqqn"]
+[ext_resource type="Script" path="res://scenes/Field/field.gd" id="1_h3u67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07kaj"]
 size = Vector2(1024, 20)
@@ -9,6 +10,7 @@ size = Vector2(1024, 20)
 size = Vector2(20, 512)
 
 [node name="Field" type="Node2D"]
+script = ExtResource("1_h3u67")
 
 [node name="TopWall" type="StaticBody2D" parent="."]
 
@@ -18,22 +20,25 @@ shape = SubResource("RectangleShape2D_07kaj")
 
 [node name="BotWall" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BotWall"]
+[node name="Right" type="CollisionShape2D" parent="BotWall"]
 position = Vector2(512, 522)
 shape = SubResource("RectangleShape2D_07kaj")
 
 [node name="Left" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+[node name="Left Goal" type="CollisionShape2D" parent="Left"]
 position = Vector2(-10, 256)
 shape = SubResource("RectangleShape2D_740ks")
 
 [node name="Right" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+[node name="Right Goal" type="CollisionShape2D" parent="Right"]
 position = Vector2(1034, 256)
 shape = SubResource("RectangleShape2D_740ks")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(512, 256)
 texture = ExtResource("1_bwqqn")
+
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
