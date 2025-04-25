@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddq68c214f32y"]
+
+[ext_resource type="Script" path="res://entities/Racket/PlayerInputComponent.gd" id="1_q364a"]
+[ext_resource type="Texture2D" uid="uid://cg7sf7c8nkeup" path="res://entities/Racket/Racket.png" id="1_w24kf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w831s"]
+size = Vector2(14, 80)
+
+[node name="Racket" type="CharacterBody2D"]
+script = ExtResource("1_q364a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w831s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w24kf")
+
+[node name="PlayerInputComponent" type="Node" parent="."]
+script = ExtResource("1_q364a")
