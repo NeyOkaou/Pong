@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b34a3ebv6ler4"]
+
+[ext_resource type="PackedScene" uid="uid://c32adwyqay48f" path="res://scenes/Field/field.tscn" id="1_tfllx"]
+[ext_resource type="PackedScene" uid="uid://ddq68c214f32y" path="res://entities/Racket/racket.tscn" id="2_4p4n7"]
+[ext_resource type="PackedScene" uid="uid://ujwh838q4bhp" path="res://entities/Ball/ball.tscn" id="3_etjau"]
+
+[node name="Game" type="Node"]
+
+[node name="Field" parent="." instance=ExtResource("1_tfllx")]
+
+[node name="Player 1" parent="." instance=ExtResource("2_4p4n7")]
+position = Vector2(50, 256)
+
+[node name="Player 2" parent="." instance=ExtResource("2_4p4n7")]
+position = Vector2(974, 256)
+
+[node name="Ball" parent="." instance=ExtResource("3_etjau")]
+position = Vector2(512, 256)
